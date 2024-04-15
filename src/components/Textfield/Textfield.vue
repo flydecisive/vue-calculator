@@ -5,11 +5,19 @@ export default {
       type: String,
     },
   },
+  computed: {
+    style() {
+      return {
+        "font-size": this.textFieldValue.length > 40 ? "16px" : "32px",
+        "line-height": this.textFieldValue.length > 40 ? "16px" : "32px",
+      };
+    },
+  },
 };
 </script>
 
 <template>
-  <textarea class="textarea" :value="textFieldValue"></textarea>
+  <textarea class="textarea" :value="textFieldValue" :style="style"></textarea>
 </template>
 
 <style scoped lang="scss">
@@ -20,8 +28,6 @@ export default {
   border: none;
   resize: none;
   background: transparent;
-  font-size: 32px;
-  line-height: 32px;
   font-weight: 400;
   color: #1f1f1f;
 
