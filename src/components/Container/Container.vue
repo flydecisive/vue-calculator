@@ -118,11 +118,18 @@ export default {
   width: 100%;
   max-width: 420px;
   height: 100vh;
+  max-height: 100vh;
   margin: 0 auto;
   background: #fbfbfb;
   padding: 24px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding: 12px;
+  }
 }
 </style>
