@@ -38,6 +38,7 @@ import Button from "../Button/Button.vue";
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
   gap: 13px;
   margin-top: 22px;
 }
