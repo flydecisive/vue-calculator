@@ -17,7 +17,7 @@ export default {
   width: 100%;
   height: 100%;
   max-height: 300px;
-  min-height: 100px;
+  min-height: 32px;
   border: none;
   resize: none;
   background: transparent;
