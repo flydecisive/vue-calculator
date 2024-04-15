@@ -21,7 +21,6 @@ export default {
   border: none;
   resize: none;
   background: transparent;
-  text-align: right;
   font-size: 32px;
   line-height: 32px;
   font-weight: 400;

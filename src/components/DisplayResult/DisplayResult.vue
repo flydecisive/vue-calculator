@@ -1,7 +1,15 @@
-<script setup></script>
+<script>
+export default {
+  props: {
+    result: {
+      type: Number,
+    },
+  },
+};
+</script>
 
 <template>
-  <p class="result">0</p>
+  <p class="result">{{ result }}</p>
 </template>
 
 <style scoped lang="scss">
