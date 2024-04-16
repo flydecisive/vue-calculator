@@ -8,8 +8,8 @@ export default {
   computed: {
     style() {
       return {
-        "font-size": this.textFieldValue.length > 40 ? "16px" : "32px",
-        "line-height": this.textFieldValue.length > 40 ? "16px" : "32px",
+        "font-size": this.textFieldValue.length > 20 ? "16px" : "32px",
+        "line-height": this.textFieldValue.length > 20 ? "16px" : "32px",
       };
     },
   },
