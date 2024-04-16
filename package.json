@@ -1,21 +1,23 @@
 {
   "name": "vue-calculator",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "vite build",
+    "dev": "vite",
     "preview": "vite preview"
   },
   "dependencies": {
+    "register-service-worker": "^1.7.2",
     "vue": "^3.4.21",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/cli-plugin-pwa": "~5.0.0",
     "sass": "^1.75.0",
     "sass-loader": "^14.2.0",
     "vite": "^5.2.0"
-  }
+  },
+  "type": "module"
 }
