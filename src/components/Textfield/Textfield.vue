@@ -17,7 +17,12 @@ export default {
 </script>
 
 <template>
-  <textarea class="textarea" :value="textFieldValue" :style="style"></textarea>
+  <textarea
+    class="textarea"
+    :value="textFieldValue"
+    :style="style"
+    disabled
+  ></textarea>
 </template>
 
 <style scoped lang="scss">
@@ -29,11 +34,18 @@ export default {
   resize: none;
   background: transparent;
   font-weight: 400;
-  color: #1f1f1f;
 
   &:focus {
     border: none;
     outline: none;
   }
+}
+
+html[data-theme="dark"] .textarea {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .textarea {
+  color: #1f1f1f;
 }
 </style>

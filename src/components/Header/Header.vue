@@ -1,18 +1,29 @@
 <script>
-import ThemeIcon from "../../assets/theme-icon.svg";
+import ThemeIconLight from "../../assets/theme-icon.svg";
+import ThemeIconDark from "../../assets/theme-icon-dark.svg";
 
 export default {
   data() {
     return {
-      ThemeIcon,
+      ThemeIconLight,
+      ThemeIconDark,
     };
+  },
+  props: {
+    theme: String,
   },
 };
 </script>
 
 <template>
   <header class="header">
-    <img :src="ThemeIcon" alt="theme" class="header__button" />
+    <div class="header__wrapper">
+      <img
+        :src="theme === 'light' ? ThemeIconLight : ThemeIconDark"
+        alt="theme"
+        class="header__button"
+      />
+    </div>
   </header>
 </template>
 
@@ -22,6 +33,11 @@ export default {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 8px;
+
+  &__wrapper {
+    width: 24px;
+    height: 24px;
+  }
 
   &__button {
     &:hover {

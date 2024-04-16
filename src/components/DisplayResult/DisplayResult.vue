@@ -23,8 +23,15 @@ export default {
 .result {
   font-weight: 400;
   line-height: 58px;
-  color: #1f1f1f;
   width: 100%;
   text-align: right;
+}
+
+html[data-theme="dark"] .result {
+  color: #ffffff;
+}
+
+html[data-theme="light"] .result {
+  color: #1f1f1f;
 }
 </style>

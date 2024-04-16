@@ -5,7 +5,12 @@ import DisplayResult from "../DisplayResult/DisplayResult.vue";
 import Numpad from "../Numpad/Numpad.vue";
 </script>
 <script>
-const data = { clickedButton: null, textFieldState: "", result: 0 };
+const data = {
+  clickedButton: null,
+  textFieldState: "",
+  result: 0,
+  currentTheme: "light",
+};
 
 export default {
   data() {
@@ -34,7 +39,7 @@ export default {
       ) {
         this.textFieldState =
           this.textFieldState + " " + this.clickedButton + " ";
-      } else if (this.clickedButton === "=") {
+      } else if (this.clickedButton === "=" && this.textFieldState.length > 0) {
         this.countResult();
       } else if (this.clickedButton === "x" && this.textFieldState.length > 0) {
         this.result = Number(this.textFieldState) ** 2;
@@ -100,16 +105,32 @@ export default {
         this.result = values[0];
       }
     },
+    toggleTheme(event) {
+      const target = event.target;
+      if (
+        target.classList.contains("header__wrapper") ||
+        target.classList.contains("header__button")
+      ) {
+        const currentTheme = document.documentElement.dataset.theme;
+        if (currentTheme === "light") {
+          document.documentElement.dataset.theme = "dark";
+          this.currentTheme = "dark";
+        } else {
+          document.documentElement.dataset.theme = "light";
+          this.currentTheme = "light";
+        }
+      }
+    },
   },
 };
 </script>
 
 <template>
   <div class="container">
-    <Header></Header>
-    <Textfield :textFieldValue="textFieldState"></Textfield>
-    <DisplayResult :result="result"></DisplayResult>
-    <Numpad @click="handleClick"></Numpad>
+    <Header @click="toggleTheme" :theme="currentTheme" />
+    <Textfield :textFieldValue="textFieldState" />
+    <DisplayResult :result="result" />
+    <Numpad @click="handleClick" :theme="currentTheme" />
   </div>
 </template>
 
@@ -120,11 +141,19 @@ export default {
   height: 100vh;
   max-height: 100vh;
   margin: 0 auto;
-  background: #fbfbfb;
   padding: 24px;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
+  transition: all 0.3s;
+}
+
+html[data-theme="dark"] .container {
+  background: #1f1f1f;
+}
+
+html[data-theme="light"] .container {
+  background: #fbfbfb;
 }
 
 @media (max-width: 375px) {
