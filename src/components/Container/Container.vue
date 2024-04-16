@@ -159,6 +159,8 @@ html[data-theme="light"] .container {
 @media (max-width: 375px) {
   .container {
     padding: 12px;
+    max-height: 100dvh;
+    height: 100dvh;
   }
 }
 </style>
